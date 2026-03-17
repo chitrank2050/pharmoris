@@ -1,47 +1,38 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import { useTheme } from 'next-themes'
 import { Sun, Moon } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { hoverScale, springs } from '@/lib/animations'
 
 /**
  * ThemeToggle Component
- * Handles switching between dark and light themes using localStorage.
- * Standardizes on dark theme as default for PHARMORIS.
+ * Handles switching between dark and light themes using next-themes.
  */
 export default function ThemeToggle() {
   const [mounted, setMounted] = useState(false)
-  const [isDark, setIsDark] = useState(true)
+  const { setTheme, resolvedTheme } = useTheme()
 
-  // Initialize theme from localStorage on mount
   useEffect(() => {
-    const stored = localStorage.getItem('theme')
-    // Default to dark if no preference is stored
-    const initialDark = stored ? stored === 'dark' : true
-
-    // eslint-disable-next-line react-hooks/set-state-in-effect
-    setIsDark(initialDark)
-    document.documentElement.classList.toggle('dark', initialDark)
-    setMounted(true)
+    // Use requestAnimationFrame to defer the state update.
+    // This avoids the "Calling setState synchronously within an effect" warning
+    // while ensuring the component correctly identifies when it has mounted on the client.
+    const raf = requestAnimationFrame(() => setMounted(true))
+    return () => cancelAnimationFrame(raf)
   }, [])
 
-  const toggleTheme = () => {
-    const next = !isDark
-    setIsDark(next)
-    localStorage.setItem('theme', next ? 'dark' : 'light')
-    document.documentElement.classList.toggle('dark', next)
-  }
-
-  // Prevent hydration mismatch: don't render content until client-side state is ready
   if (!mounted) {
     return <div className="h-8 w-8" aria-hidden="true" />
   }
 
+  // Use resolvedTheme to handle cases where 'system' preference is enabled
+  const isDark = resolvedTheme === 'dark'
+
   return (
     <motion.button
       type="button"
-      onClick={toggleTheme}
+      onClick={() => setTheme(isDark ? 'light' : 'dark')}
       {...hoverScale}
       className="flex h-8 w-8 items-center justify-center rounded-sm text-text-secondary outline-none focus-visible:ring-1 focus-visible:ring-accent"
       aria-label={`Switch to ${isDark ? 'light' : 'dark'} mode`}

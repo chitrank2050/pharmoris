@@ -50,17 +50,18 @@
 
 /* --- Base Styling & Global Elements --- */
 
-html {
-  background-color: theme(colors.bg);
-  color: theme(colors.text-primary);
-  font-family: theme(fontFamily.sans);
+html,
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text-primary);
+  font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 ::selection {
-  background: theme(colors.accent);
-  color: theme(colors.surface);
+  background: var(--color-accent);
+  color: var(--color-surface);
 }
 
 /* Custom Scrollbar */
@@ -73,12 +74,12 @@ html {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: theme(colors.border);
+  background: var(--color-border);
   border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: theme(colors.text-muted);
+  background: var(--color-text-muted);
 }
 
 /* Glass Header Adapts to Dark Mode */
