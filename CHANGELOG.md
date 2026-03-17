@@ -2,6 +2,15 @@
 
 All notable changes to PHARMORIS.
 
+## [0.2.0] - 2026-03-17
+
+### Features
+
+- Implement global styling with custom fonts and Tailwind CSS utility functions.
+- Initialize application layout with custom fonts, updated metadata, dark mode styling, and a placeholder dashboard page.
+- Introduce core data types and mock data for dashboard KPIs, charts, and drug supply.
+- Introduce mock data and types for KPIs, cost savings, and drug supply.
+
 ## [0.1.0] - 2026-03-17
 
 ### Documentation
