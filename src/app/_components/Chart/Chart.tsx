@@ -25,7 +25,7 @@ const ChartTooltip = memo(function ChartTooltip({ active, payload, label }: Tool
   if (!active || !payload?.length) return null
   return (
     <div className="rounded-sm border border-border bg-surface-raised px-3 py-2 shadow-xl">
-      <p className="mb-1 font-mono text-xs text-text-muted">{label}</p>
+      <p className="mb-1 font-mono text-xs text-muted">{label}</p>
       <p className="font-display text-sm font-700 text-accent">
         {formatSavings(payload[0].value as number)}
       </p>
@@ -96,7 +96,7 @@ export default function CostSavingsChart() {
 
   return (
     <section aria-label="Cost savings over time chart" className="mb-8">
-      <p className="mb-4 font-mono text-xs tracking-widest text-text-muted" aria-hidden="true">
+      <p className="mb-4 font-mono text-xs tracking-widest text-muted" aria-hidden="true">
         COST SAVINGS OVER TIME
       </p>
 
@@ -111,20 +111,18 @@ export default function CostSavingsChart() {
         {/* Header */}
         <div className="flex flex-wrap items-start justify-between gap-4 border-b border-border px-6 py-4">
           <div>
-            <p className="font-display text-2xl font-700 text-text-primary">
-              {formatSavings(latest)}
-            </p>
-            <p className="mt-0.5 font-mono text-xs text-text-secondary">Latest recorded savings</p>
+            <p className="font-display text-2xl font-700 text-primary">{formatSavings(latest)}</p>
+            <p className="mt-0.5 font-mono text-xs text-secondary">Latest recorded savings</p>
           </div>
           <div className="flex gap-6">
             <div className="text-right">
-              <p className="font-mono text-xs text-text-muted">PEAK</p>
-              <p className="mt-0.5 font-display text-sm font-600 text-text-primary">
+              <p className="font-mono text-xs text-muted">PEAK</p>
+              <p className="mt-0.5 font-display text-sm font-600 text-primary">
                 {formatSavings(peak)}
               </p>
             </div>
             <div className="text-right">
-              <p className="font-mono text-xs text-text-muted">GROWTH</p>
+              <p className="font-mono text-xs text-muted">GROWTH</p>
               <p className="mt-0.5 font-display text-sm font-600 text-accent">+{growth}%</p>
             </div>
           </div>

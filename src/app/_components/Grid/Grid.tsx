@@ -8,7 +8,7 @@ import { staggerContainerVariants } from '@/lib/animations'
 export default function KPIGrid() {
   return (
     <section aria-label="Key performance indicators" className="mb-8">
-      <p className="mb-4 font-mono text-xs tracking-widest text-text-muted" aria-hidden="true">
+      <p className="mb-4 font-mono text-xs tracking-widest text-muted" aria-hidden="true">
         OVERVIEW
       </p>
       <motion.div

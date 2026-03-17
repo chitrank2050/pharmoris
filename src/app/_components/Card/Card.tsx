@@ -13,7 +13,7 @@ interface Props {
 const directionConfig = {
   up: { icon: TrendingUp, color: 'text-accent', bg: 'bg-accent-dim', label: 'trending up' },
   down: { icon: TrendingDown, color: 'text-danger', bg: 'bg-danger/10', label: 'trending down' },
-  stable: { icon: Minus, color: 'text-text-secondary', bg: 'bg-surface-raised', label: 'stable' },
+  stable: { icon: Minus, color: 'text-secondary', bg: 'bg-surface-raised', label: 'stable' },
 }
 
 const Card = memo(function KPICard({ card }: Props) {
@@ -29,7 +29,7 @@ const Card = memo(function KPICard({ card }: Props) {
     >
       {/* Top row */}
       <div className="mb-4 flex items-start justify-between">
-        <span className="font-mono text-xs tracking-widest text-text-secondary">
+        <span className="font-mono text-xs tracking-widest text-secondary">
           {card.label.toUpperCase()}
         </span>
         <div
@@ -41,7 +41,7 @@ const Card = memo(function KPICard({ card }: Props) {
       </div>
 
       {/* Value */}
-      <p className="mb-2 font-display text-3xl font-800 tracking-tight text-text-primary">
+      <p className="mb-2 font-display text-3xl font-800 tracking-tight text-primary">
         {card.value}
       </p>
 

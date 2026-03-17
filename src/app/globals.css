@@ -2,16 +2,16 @@
 
 @theme {
   /* Mapping Tailwind color names to our reactive CSS variables */
-  /* This allows us to use bg-bg, text-text-primary, etc. in components */
-  --color-bg: var(--bg);
+  /* This results in utility classes like bg-background, text-primary, etc. */
+  --color-background: var(--bg);
   --color-surface: var(--surface);
   --color-surface-raised: var(--surface-raised);
   --color-border: var(--border);
   --color-border-subtle: var(--border-subtle);
 
-  --color-text-primary: var(--text-primary);
-  --color-text-secondary: var(--text-secondary);
-  --color-text-muted: var(--text-muted);
+  --color-primary: var(--text-primary);
+  --color-secondary: var(--text-secondary);
+  --color-muted: var(--text-muted);
 
   --color-accent: var(--accent);
   --color-accent-dim: var(--accent-dim);

@@ -80,10 +80,8 @@ const TableRow = memo(function TableRow({ row, index }: { row: DrugSupply; index
         style={{ willChange: 'opacity' }}
       />
 
-      <td className="relative px-4 py-3.5 text-sm text-text-primary">{row.drugName}</td>
-      <td className="relative px-4 py-3.5 font-mono text-xs text-text-secondary">
-        {row.manufacturer}
-      </td>
+      <td className="relative px-4 py-3.5 text-sm text-primary">{row.drugName}</td>
+      <td className="relative px-4 py-3.5 font-mono text-xs text-secondary">{row.manufacturer}</td>
       <td className="relative px-4 py-3.5">
         <span className={`rounded-sm px-2 py-1 font-mono text-xs ${statusConfig[row.stockStatus]}`}>
           {row.stockStatus}
@@ -97,7 +95,7 @@ const TableRow = memo(function TableRow({ row, index }: { row: DrugSupply; index
               ? 'text-danger'
               : row.priceDirection === 'down'
                 ? 'text-accent'
-                : 'text-text-secondary'
+                : 'text-secondary'
           }`}
         >
           {row.priceDirection === 'up' && <TrendingUp className="h-3 w-3" aria-hidden="true" />}
@@ -107,7 +105,7 @@ const TableRow = memo(function TableRow({ row, index }: { row: DrugSupply; index
           {row.priceChange}%
         </span>
       </td>
-      <td className="relative px-4 py-3.5 font-mono text-xs text-text-muted">
+      <td className="relative px-4 py-3.5 font-mono text-xs text-muted">
         <time dateTime={row.lastUpdated}>{row.lastUpdated}</time>
       </td>
     </motion.tr>
@@ -138,7 +136,7 @@ const PageButton = memo(function PageButton({
       whileTap={disabled ? {} : { scale: 0.9, transition: springs.micro }}
       style={{ willChange: 'transform' }}
       className={`flex h-7 w-7 items-center justify-center rounded-sm border font-mono text-xs outline-none focus-visible:ring-1 focus-visible:ring-accent disabled:cursor-not-allowed disabled:opacity-30 ${
-        active ? 'border-accent/50 bg-accent-dim text-accent' : 'border-border text-text-secondary'
+        active ? 'border-accent/50 bg-accent-dim text-accent' : 'border-border text-secondary'
       }`}
     >
       {children}
@@ -180,10 +178,10 @@ export default function SupplyTable() {
   return (
     <section aria-label="Medicine supply data" className="mb-8">
       <div className="mb-4 flex items-center justify-between">
-        <p className="font-mono text-xs tracking-widest text-text-muted" aria-hidden="true">
+        <p className="font-mono text-xs tracking-widest text-muted" aria-hidden="true">
           MEDICINE SUPPLY
         </p>
-        <p className="font-mono text-xs text-text-muted" aria-live="polite">
+        <p className="font-mono text-xs text-muted" aria-live="polite">
           {sorted.length} RECORDS
         </p>
       </div>
@@ -216,7 +214,7 @@ export default function SupplyTable() {
                       onClick={() => handleSort(col.key)}
                       {...hoverSubtle}
                       style={{ willChange: 'transform' }}
-                      className="flex items-center gap-2 font-mono text-xs tracking-widest text-text-secondary outline-none focus-visible:text-accent"
+                      className="flex items-center gap-2 font-mono text-xs tracking-widest text-secondary outline-none focus-visible:text-accent"
                     >
                       {col.label.toUpperCase()}
                       <SortIcon col={col.key} sortKey={sortKey} sortDir={sortDir} />
@@ -252,7 +250,7 @@ export default function SupplyTable() {
           aria-label="Table pagination"
           className="flex items-center justify-between border-t border-border px-4 py-3"
         >
-          <p className="font-mono text-xs text-text-muted" aria-live="polite" aria-atomic="true">
+          <p className="font-mono text-xs text-muted" aria-live="polite" aria-atomic="true">
             PAGE {page + 1} OF {totalPages}
           </p>
           <div className="flex items-center gap-1">
