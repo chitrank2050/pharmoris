@@ -1,67 +1,105 @@
 @import 'tailwindcss';
 
 @theme {
-  /* Light mode — Based on Google Stitch UI (Slate & Blue) */
-  --color-bg: #f8fafc; /* tailwind: slate-50 */
-  --color-surface: #ffffff; /* white */
-  --color-surface-raised: #f1f5f9; /* tailwind: slate-100 */
-  --color-border: #e2e8f0; /* tailwind: slate-200 */
-  --color-border-subtle: #f1f5f9; /* tailwind: slate-100 */
+  /* Mapping Tailwind color names to our reactive CSS variables */
+  /* This allows us to use bg-bg, text-text-primary, etc. in components */
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-raised: var(--surface-raised);
+  --color-border: var(--border);
+  --color-border-subtle: var(--border-subtle);
 
-  --color-text-primary: #0f172a; /* tailwind: slate-900 */
-  --color-text-secondary: #64748b; /* tailwind: slate-500 */
-  --color-text-muted: #94a3b8; /* tailwind: slate-400 */
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-muted: var(--text-muted);
 
-  --color-accent: #2563eb; /* tailwind: blue-600 */
-  --color-accent-dim: #eff6ff; /* tailwind: blue-50 */
-  --color-accent-hover: #1d4ed8; /* tailwind: blue-700 */
+  --color-accent: var(--accent);
+  --color-accent-dim: var(--accent-dim);
+  --color-accent-hover: var(--accent-hover);
 
-  /* Status Colors from UI KPIs */
-  --color-success: #059669; /* tailwind: emerald-600 */
-  --color-warning: #d97706; /* tailwind: amber-600 */
-  --color-danger: #e11d48; /* tailwind: rose-600 */
-  --color-info: #4f46e5; /* tailwind: indigo-600 */
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-danger: var(--danger);
+  --color-info: var(--info);
 
   /* Fonts */
   --font-sans: 'Inter', sans-serif;
 }
 
-/* Dark mode overrides — activated by .dark on <html> */
+/* Base Variables */
+:root {
+  --bg: #f8fafc;
+  --surface: #ffffff;
+  --surface-raised: #f1f5f9;
+  --border: #e2e8f0;
+  --border-subtle: #f1f5f9;
+
+  --text-primary: #0f172a;
+  --text-secondary: #64748b;
+  --text-muted: #94a3b8;
+
+  --accent: #2563eb;
+  --accent-dim: #eff6ff;
+  --accent-hover: #1d4ed8;
+
+  --success: #059669;
+  --warning: #d97706;
+  --danger: #e11d48;
+  --info: #4f46e5;
+
+  /* Color scheme for browser UI elements like scrollbars */
+  color-scheme: light;
+}
+
 .dark {
-  --color-bg: #020617; /* tailwind: slate-950 */
-  --color-surface: #0f172a; /* tailwind: slate-900 */
-  --color-surface-raised: #1e293b; /* tailwind: slate-800 */
-  --color-border: #334155; /* tailwind: slate-700 */
-  --color-border-subtle: #1e293b; /* tailwind: slate-800 */
+  --bg: #020617;
+  --surface: #0f172a;
+  --surface-raised: #1e293b;
+  --border: #334155;
+  --border-subtle: #1e293b;
 
-  --color-text-primary: #f8fafc; /* tailwind: slate-50 */
-  --color-text-secondary: #94a3b8; /* tailwind: slate-400 */
-  --color-text-muted: #64748b; /* tailwind: slate-500 */
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
 
-  --color-accent: #3b82f6; /* tailwind: blue-500 */
-  --color-accent-dim: rgba(59, 130, 246, 0.15); /* blue-500 at 15% opacity */
-  --color-accent-hover: #60a5fa; /* tailwind: blue-400 */
+  --accent: #3b82f6;
+  --accent-dim: rgba(59, 130, 246, 0.15);
+  --accent-hover: #60a5fa;
 
-  --color-success: #10b981; /* tailwind: emerald-500 */
-  --color-warning: #f59e0b; /* tailwind: amber-500 */
-  --color-danger: #f43f5e; /* tailwind: rose-500 */
-  --color-info: #6366f1; /* tailwind: indigo-500 */
+  --success: #10b981;
+  --warning: #f59e0b;
+  --danger: #f43f5e;
+  --info: #6366f1;
+
+  color-scheme: dark;
 }
 
 /* --- Base Styling & Global Elements --- */
 
-html,
-body {
-  background-color: var(--color-bg);
-  color: var(--color-text-primary);
-  font-family: var(--font-sans);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@layer base {
+  html,
+  body {
+    background-color: var(--bg);
+    color: var(--text-primary);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    /* transition: background-color 0.2s ease-in-out; */ /* Optional: smooth transition */
+  }
+
+  ::selection {
+    background-color: var(--accent);
+    color: var(--surface);
+  }
 }
 
-::selection {
-  background: var(--color-accent);
-  color: var(--color-surface);
+/* --- Layout Utilities --- */
+
+.glass-header {
+  @apply sticky top-0 z-50 border-b border-border transition-colors duration-300;
+  background-color: color-mix(in srgb, var(--bg), transparent 10%);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }
 
 /* Custom Scrollbar */
@@ -74,31 +112,19 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--color-border);
+  background: var(--border);
   border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--color-text-muted);
-}
-
-/* Glass Header Adapts to Dark Mode */
-.glass-header {
-  background: rgba(255, 255, 255, 0.75);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(226, 232, 240, 0.8); /* slate-200 */
-}
-
-.dark .glass-header {
-  background: rgba(15, 23, 42, 0.75); /* slate-900 */
-  border-bottom: 1px solid rgba(51, 65, 85, 0.8); /* slate-700 */
+  background: var(--text-muted);
 }
 
 /* Motion and Chart utilities */
 .motion-card {
   transition: box-shadow 0.3s ease;
 }
+
 .chart-bar {
   transform-origin: bottom;
 }
