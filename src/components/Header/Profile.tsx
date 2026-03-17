@@ -9,7 +9,7 @@ export default function Profile() {
         <p className="text-xs font-bold text-primary uppercase">Dr. Chitrank</p>
         <p className="text-[10px] tracking-wider text-muted uppercase">Administrator</p>
       </div>
-      <div className="h-8 w-8 rounded-full border border-border bg-surface-raised overflow-hidden relative">
+      <div className="h-8 w-8 rounded-full border border-line bg-surface-raised overflow-hidden relative">
         <Image
           src="https://api.dicebear.com/7.x/avataaars/svg?seed=Sarah"
           alt="Avatar"

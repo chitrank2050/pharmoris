@@ -16,7 +16,7 @@ export default function Header() {
               className="flex h-8 w-8 items-center justify-center rounded-sm bg-accent shadow-lg"
               aria-hidden="true"
             >
-              <Activity className="h-4 w-4 text-background" strokeWidth={2.5} />
+              <Activity className="h-4 w-4 text-page" strokeWidth={2.5} />
             </div>
             <span className="font-normal tracking-tight text-lg text-primary">PHARMORIS</span>
           </div>
@@ -29,7 +29,7 @@ export default function Header() {
           <div className="flex items-center gap-2" role="toolbar" aria-label="Header actions">
             <ThemeToggle />
             <Notifications />
-            <div className="h-6 w-px bg-border mx-2 hidden md:block" />
+            <div className="h-6 w-px bg-line mx-2 hidden md:block" />
 
             {/* Profile (Image and Name) - Wrapped in Suspense per user request */}
             <Suspense fallback={<div className="h-8 w-8 rounded-full bg-surface-raised md:w-32" />}>

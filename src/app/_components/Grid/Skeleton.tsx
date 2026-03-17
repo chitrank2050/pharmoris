@@ -10,7 +10,7 @@ export default function GridSkeleton() {
         {Array.from({ length: 4 }).map((_, i) => (
           <div
             key={i}
-            className="relative overflow-hidden rounded-sm border border-border bg-surface p-6"
+            className="relative overflow-hidden rounded-sm border border-line bg-surface p-6"
           >
             {/* Top row — label + icon */}
             <div className="mb-4 flex items-start justify-between">
@@ -25,7 +25,7 @@ export default function GridSkeleton() {
             <Skeleton className="h-3 w-32" />
 
             {/* Bottom accent line */}
-            <span className="absolute inset-x-0 bottom-0 h-px bg-border" />
+            <span className="absolute inset-x-0 bottom-0 h-px bg-line" />
           </div>
         ))}
       </div>

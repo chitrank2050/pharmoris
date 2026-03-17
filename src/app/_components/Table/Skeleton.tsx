@@ -22,12 +22,12 @@ export default function TableSkeleton() {
         <Skeleton className="h-3 w-20" />
       </div>
 
-      <div className="overflow-hidden rounded-sm border border-border bg-surface">
+      <div className="overflow-hidden rounded-sm border border-line bg-surface">
         <div className="overflow-x-auto">
           <table className="w-full" aria-hidden="true">
             {/* Header — matches sort button layout */}
             <thead>
-              <tr className="border-b border-border">
+              <tr className="border-b border-line">
                 {colWidths.map((w, i) => (
                   <th key={i} className="px-4 py-3 text-left">
                     <div className="flex items-center gap-2">
@@ -43,7 +43,7 @@ export default function TableSkeleton() {
             {/* Rows — 8 to match PAGE_SIZE */}
             <tbody>
               {rowWidths.map((cols, i) => (
-                <tr key={i} className="border-b border-border-subtle last:border-0">
+                <tr key={i} className="border-b border-line-dim last:border-0">
                   {/* Drug name */}
                   <td className="px-4 py-3.5">
                     <Skeleton className={`h-3.5 ${cols[0]}`} />
@@ -74,7 +74,7 @@ export default function TableSkeleton() {
         </div>
 
         {/* Pagination footer — matches exact layout */}
-        <div className="flex items-center justify-between border-t border-border px-4 py-3">
+        <div className="flex items-center justify-between border-t border-line px-4 py-3">
           {/* PAGE X OF Y */}
           <Skeleton className="h-3 w-24" />
 

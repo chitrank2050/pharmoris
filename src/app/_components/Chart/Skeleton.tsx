@@ -6,9 +6,9 @@ export default function ChartSkeleton() {
       {/* Section label */}
       <Skeleton className="mb-4 h-3 w-44" />
 
-      <div className="overflow-hidden rounded-sm border border-border bg-surface">
+      <div className="overflow-hidden rounded-sm border border-line bg-surface">
         {/* Header — mirrors chart header exactly */}
-        <div className="flex flex-wrap items-start justify-between gap-4 border-b border-border px-6 py-4">
+        <div className="flex flex-wrap items-start justify-between gap-4 border-b border-line px-6 py-4">
           {/* Left — latest value + subtitle */}
           <div>
             <Skeleton className="mb-1.5 h-7 w-20" />
@@ -42,7 +42,7 @@ export default function ChartSkeleton() {
             <div className="absolute inset-y-0 left-[60px] right-0 flex flex-col justify-between py-2">
               {/* Grid lines */}
               {Array.from({ length: 5 }).map((_, i) => (
-                <div key={i} className="h-px w-full bg-border-subtle" />
+                <div key={i} className="h-px w-full bg-line-dim" />
               ))}
             </div>
 

@@ -186,7 +186,7 @@ export default function SupplyTable() {
         </p>
       </div>
 
-      <div className="overflow-hidden rounded-sm border border-border bg-surface">
+      <div className="overflow-hidden rounded-sm border border-line bg-surface">
         <div className="overflow-x-auto">
           <table
             role="table"
@@ -195,7 +195,7 @@ export default function SupplyTable() {
             className="w-full"
           >
             <thead>
-              <tr role="row" className="border-b border-border">
+              <tr role="row" className="border-b border-line">
                 {columns.map((col) => (
                   <th
                     key={col.key}
@@ -234,7 +234,7 @@ export default function SupplyTable() {
                 <tr
                   key={`filler-${i}`}
                   aria-hidden="true"
-                  className="border-b border-border-subtle last:border-0"
+                  className="border-b border-line-dim last:border-0"
                 >
                   <td className="px-4 py-3.5" colSpan={5}>
                     <span className="block h-4" />
@@ -248,7 +248,7 @@ export default function SupplyTable() {
         {/* Pagination */}
         <nav
           aria-label="Table pagination"
-          className="flex items-center justify-between border-t border-border px-4 py-3"
+          className="flex items-center justify-between border-t border-line px-4 py-3"
         >
           <p className="text-xs text-muted" aria-live="polite" aria-atomic="true">
             PAGE {page + 1} OF {totalPages}

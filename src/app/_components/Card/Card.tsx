@@ -25,7 +25,7 @@ const Card = memo(function KPICard({ card }: Props) {
       {...hoverLift}
       style={{ willChange: 'transform, opacity' }}
       aria-label={`${card.label}: ${card.value}, ${card.change}`}
-      className="group relative overflow-hidden rounded-sm border border-border bg-surface p-6 cursor-default"
+      className="group relative overflow-hidden rounded-sm border border-line bg-surface p-6 cursor-default"
     >
       {/* Top row */}
       <div className="mb-4 flex items-start justify-between">

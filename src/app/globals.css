@@ -2,12 +2,11 @@
 
 @theme {
   /* Mapping Tailwind color names to our reactive CSS variables */
-  /* This results in utility classes like bg-background, text-primary, etc. */
-  --color-background: var(--bg);
+  --color-page: var(--bg);
   --color-surface: var(--surface);
   --color-surface-raised: var(--surface-raised);
-  --color-border: var(--border);
-  --color-border-subtle: var(--border-subtle);
+  --color-line: var(--border);
+  --color-line-dim: var(--border-subtle);
 
   --color-primary: var(--text-primary);
   --color-secondary: var(--text-secondary);
@@ -96,7 +95,7 @@
 /* --- Layout Utilities --- */
 
 .glass-header {
-  @apply sticky top-0 z-50 border-b border-border transition-colors duration-300;
+  @apply sticky top-0 z-50 border-b border-line transition-colors duration-300;
   background-color: color-mix(in srgb, var(--bg), transparent 10%);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);

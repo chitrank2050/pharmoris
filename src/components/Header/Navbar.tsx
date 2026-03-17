@@ -48,7 +48,7 @@ export default function Navbar() {
 
       {/* Mobile Bottom Bar */}
       <nav
-        className="fixed bottom-0 left-0 right-0 z-50 flex border-t border-border bg-background/90 backdrop-blur-lg md:hidden"
+        className="fixed bottom-0 left-0 right-0 z-50 flex border-t border-line bg-page/90 backdrop-blur-lg md:hidden"
         aria-label="Mobile bottom navigation"
       >
         <div className="flex h-16 items-center justify-around px-2 w-full">

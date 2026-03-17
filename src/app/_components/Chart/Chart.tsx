@@ -24,7 +24,7 @@ function formatSavings(value: number) {
 const ChartTooltip = memo(function ChartTooltip({ active, payload, label }: TooltipContentProps) {
   if (!active || !payload?.length) return null
   return (
-    <div className="rounded-sm border border-border bg-surface-raised px-3 py-2 shadow-xl">
+    <div className="rounded-sm border border-line bg-surface-raised px-3 py-2 shadow-xl">
       <p className="mb-1 text-xs text-muted">{label}</p>
       <p className="font-display text-sm font-700 text-accent">
         {formatSavings(payload[0].value as number)}
@@ -50,14 +50,22 @@ const ChartBody = memo(function ChartBody() {
         </defs>
         <XAxis
           dataKey="month"
-          tick={{ fill: tokens.colors.textSecondary, fontSize: 10, fontFamily: tokens.fonts.mono }}
+          tick={{
+            fill: tokens.colors.textSecondary,
+            fontSize: 10,
+            fontFamily: tokens.fonts.display,
+          }}
           axisLine={false}
           tickLine={false}
           dy={8}
         />
         <YAxis
           tickFormatter={formatSavings}
-          tick={{ fill: tokens.colors.textSecondary, fontSize: 10, fontFamily: tokens.fonts.mono }}
+          tick={{
+            fill: tokens.colors.textSecondary,
+            fontSize: 10,
+            fontFamily: tokens.fonts.display,
+          }}
           axisLine={false}
           tickLine={false}
           width={52}
@@ -106,10 +114,10 @@ export default function CostSavingsChart() {
         initial="hidden"
         animate={isInView ? 'visible' : 'hidden'}
         style={{ willChange: 'transform, opacity' }}
-        className="overflow-hidden rounded-sm border border-border bg-surface"
+        className="overflow-hidden rounded-sm border border-line bg-surface"
       >
         {/* Header */}
-        <div className="flex flex-wrap items-start justify-between gap-4 border-b border-border px-6 py-4">
+        <div className="flex flex-wrap items-start justify-between gap-4 border-b border-line px-6 py-4">
           <div>
             <p className="font-display text-2xl font-700 text-primary">{formatSavings(latest)}</p>
             <p className="mt-0.5 text-xs text-secondary">Latest recorded savings</p>
