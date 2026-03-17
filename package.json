@@ -1,17 +1,35 @@
 {
   "name": "pharmoris",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
+  "homepage": "https://www.chitrankagnihotri.com",
+  "author": {
+    "name": "Chitrank agnihotri",
+    "email": "chitrank2050@gmail.com",
+    "url": "https://wwww.chitrankagnihotri.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/chitrank2050/pharmoris"
+  },
+  "license": "MIT",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "init": "./scripts/install.sh",
+    "nuke": "./scripts/obliviate.sh",
+    "clean-setup": "pnpm run nuke && pnpm run init",
+    "clean-build": "pnpm run nuke && pnpm run init && ./scripts/build.sh"
   },
   "dependencies": {
+    "framer-motion": "^12.37.0",
+    "lucide-react": "^0.577.0",
     "next": "16.1.7",
     "react": "19.2.3",
-    "react-dom": "19.2.3"
+    "react-dom": "19.2.3",
+    "recharts": "^3.8.0"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
