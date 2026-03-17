@@ -50,7 +50,7 @@
 }
 
 html {
-  background-color: theme(colors.bg);
+  /* background-color: theme(colors.bg); */
   color: theme(colors.text-primary);
   font-family: theme(fontFamily.body);
   -webkit-font-smoothing: antialiased;
