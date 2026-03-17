@@ -24,7 +24,8 @@
     "clean-build": "pnpm run nuke && pnpm run init && ./scripts/build.sh",
     "prepare": "husky",
     "git-tag": "./scripts/git-tag.sh",
-    "git-release": "./scripts/git-release.sh"
+    "git-release": "./scripts/git-release.sh",
+    "format:check": "prettier --check ."
   },
   "dependencies": {
     "framer-motion": "^12.37.0",

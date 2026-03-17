@@ -1,6 +1,6 @@
 # PHARMORIS
 
-Pharmaceutical intelligence dashboard built for NEUVIOR's frontend engineer assessment.
+> Pharmaceutical intelligence dashboard built for NEUVIOR's frontend engineer assessment.
 
 ## Stack
 
@@ -34,4 +34,4 @@ lib/          # Utilities and helpers
 
 - Mock data only — no backend required
 - Deployed on Vercel
-- AI assistance disclosed: used for boilerplate generation and copy suggestions
+- AI assistance disclosed: Antigravity (Tab completion)
