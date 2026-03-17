@@ -81,16 +81,16 @@ const TableRow = memo(function TableRow({ row, index }: { row: DrugSupply; index
       />
 
       <td className="relative px-4 py-3.5 text-sm text-primary">{row.drugName}</td>
-      <td className="relative px-4 py-3.5 font-mono text-xs text-secondary">{row.manufacturer}</td>
+      <td className="relative px-4 py-3.5 text-xs text-secondary">{row.manufacturer}</td>
       <td className="relative px-4 py-3.5">
-        <span className={`rounded-sm px-2 py-1 font-mono text-xs ${statusConfig[row.stockStatus]}`}>
+        <span className={`rounded-sm px-2 py-1 text-xs ${statusConfig[row.stockStatus]}`}>
           {row.stockStatus}
         </span>
       </td>
       <td className="relative px-4 py-3.5">
         <span
           aria-label={`${row.priceDirection === 'up' ? 'Increased' : row.priceDirection === 'down' ? 'Decreased' : 'Unchanged'} by ${Math.abs(row.priceChange)}%`}
-          className={`flex items-center gap-1 font-mono text-xs ${
+          className={`flex items-center gap-1 text-xs ${
             row.priceDirection === 'up'
               ? 'text-danger'
               : row.priceDirection === 'down'
@@ -105,7 +105,7 @@ const TableRow = memo(function TableRow({ row, index }: { row: DrugSupply; index
           {row.priceChange}%
         </span>
       </td>
-      <td className="relative px-4 py-3.5 font-mono text-xs text-muted">
+      <td className="relative px-4 py-3.5 text-xs text-muted">
         <time dateTime={row.lastUpdated}>{row.lastUpdated}</time>
       </td>
     </motion.tr>
@@ -135,7 +135,7 @@ const PageButton = memo(function PageButton({
       whileHover={disabled ? {} : { scale: 1.1, transition: springs.snappy }}
       whileTap={disabled ? {} : { scale: 0.9, transition: springs.micro }}
       style={{ willChange: 'transform' }}
-      className={`flex h-7 w-7 items-center justify-center rounded-sm border font-mono text-xs outline-none focus-visible:ring-1 focus-visible:ring-accent disabled:cursor-not-allowed disabled:opacity-30 ${
+      className={`flex h-7 w-7 items-center justify-center rounded-sm border text-xs outline-none focus-visible:ring-1 focus-visible:ring-accent disabled:cursor-not-allowed disabled:opacity-30 ${
         active ? 'border-accent/50 bg-accent-dim text-accent' : 'border-border text-secondary'
       }`}
     >
@@ -178,10 +178,10 @@ export default function SupplyTable() {
   return (
     <section aria-label="Medicine supply data" className="mb-8">
       <div className="mb-4 flex items-center justify-between">
-        <p className="font-mono text-xs tracking-widest text-muted" aria-hidden="true">
+        <p className="text-xs tracking-widest text-muted" aria-hidden="true">
           MEDICINE SUPPLY
         </p>
-        <p className="font-mono text-xs text-muted" aria-live="polite">
+        <p className="text-xs text-muted" aria-live="polite">
           {sorted.length} RECORDS
         </p>
       </div>
@@ -214,7 +214,7 @@ export default function SupplyTable() {
                       onClick={() => handleSort(col.key)}
                       {...hoverSubtle}
                       style={{ willChange: 'transform' }}
-                      className="flex items-center gap-2 font-mono text-xs tracking-widest text-secondary outline-none focus-visible:text-accent"
+                      className="flex items-center gap-2 text-xs tracking-widest text-secondary outline-none focus-visible:text-accent"
                     >
                       {col.label.toUpperCase()}
                       <SortIcon col={col.key} sortKey={sortKey} sortDir={sortDir} />
@@ -250,7 +250,7 @@ export default function SupplyTable() {
           aria-label="Table pagination"
           className="flex items-center justify-between border-t border-border px-4 py-3"
         >
-          <p className="font-mono text-xs text-muted" aria-live="polite" aria-atomic="true">
+          <p className="text-xs text-muted" aria-live="polite" aria-atomic="true">
             PAGE {page + 1} OF {totalPages}
           </p>
           <div className="flex items-center gap-1">

@@ -29,9 +29,7 @@ const Card = memo(function KPICard({ card }: Props) {
     >
       {/* Top row */}
       <div className="mb-4 flex items-start justify-between">
-        <span className="font-mono text-xs tracking-widest text-secondary">
-          {card.label.toUpperCase()}
-        </span>
+        <span className="text-xs tracking-widest text-secondary">{card.label.toUpperCase()}</span>
         <div
           className={`flex h-7 w-7 items-center justify-center rounded-sm ${bg}`}
           aria-hidden="true"
@@ -46,7 +44,7 @@ const Card = memo(function KPICard({ card }: Props) {
       </p>
 
       {/* Change */}
-      <p className={`font-mono text-xs ${color}`} aria-label={`Change: ${card.change}, ${label}`}>
+      <p className={`text-xs ${color}`} aria-label={`Change: ${card.change}, ${label}`}>
         {card.change}
       </p>
 

@@ -23,7 +23,7 @@
   --color-info: var(--info);
 
   /* Fonts */
-  --font-sans: 'Inter', sans-serif;
+  --font-sans: var(--font-sans), system-ui, sans-serif;
 }
 
 /* Base Variables */

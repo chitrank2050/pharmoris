@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { fontInter } from '@/lib/fonts'
+import { fontSans } from '@/lib/fonts'
 import AppProvider from '@/providers'
 
 import './globals.css'
@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${fontInter.variable} antialiased`}>
+      <body className={`${fontSans.variable} font-sans antialiased`}>
         <AppProvider>{children}</AppProvider>
       </body>
     </html>

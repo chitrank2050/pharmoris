@@ -12,7 +12,6 @@ export const tokens = {
     danger: '#ef4444',
   },
   fonts: {
-    mono: 'IBM Plex Mono, monospace',
-    display: 'Syne, sans-serif',
+    display: 'var(--font-sans), sans-serif',
   },
 } as const
