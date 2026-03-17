@@ -14,6 +14,7 @@ export interface DrugSupply {
   id: string
   drugName: string
   manufacturer: string
+  description: string
   stockStatus: StockStatus
   priceChange: number
   priceDirection: PriceDirection

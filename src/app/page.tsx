@@ -3,17 +3,17 @@ import PageShell from '@/layout/PageShell'
 import Grid from './_components/Grid'
 import Chart from './_components/Chart'
 import Table from './_components/Table'
-import Header from '../components/Header'
+import Header from '@/components/Header'
 
 export default function DashboardPage() {
   return (
     <main className="min-h-screen">
       <Header />
-      {/* <PageShell>
+      <PageShell>
         <Grid />
         <Table />
         <Chart />
-      </PageShell> */}
+      </PageShell>
     </main>
   )
 }
