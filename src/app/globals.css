@@ -1,76 +1,105 @@
-@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap');
-
 @import 'tailwindcss';
 
 @theme {
-  /* Light mode — default */
-  --color-bg: #f4f6f8;
-  --color-surface: #ffffff;
-  --color-surface-raised: #f0f2f5;
-  --color-border: #dde2ea;
-  --color-border-subtle: #eaecf0;
+  /* Light mode — Based on Google Stitch UI (Slate & Blue) */
+  --color-bg: #f8fafc; /* tailwind: slate-50 */
+  --color-surface: #ffffff; /* white */
+  --color-surface-raised: #f1f5f9; /* tailwind: slate-100 */
+  --color-border: #e2e8f0; /* tailwind: slate-200 */
+  --color-border-subtle: #f1f5f9; /* tailwind: slate-100 */
 
-  --color-text-primary: #0d1117;
-  --color-text-secondary: #4a5568;
-  --color-text-muted: #9aa3b0;
+  --color-text-primary: #0f172a; /* tailwind: slate-900 */
+  --color-text-secondary: #64748b; /* tailwind: slate-500 */
+  --color-text-muted: #94a3b8; /* tailwind: slate-400 */
 
-  --color-accent: #00a87a;
-  --color-accent-dim: rgba(0, 168, 122, 0.08);
-  --color-accent-hover: #00c896;
+  --color-accent: #2563eb; /* tailwind: blue-600 */
+  --color-accent-dim: #eff6ff; /* tailwind: blue-50 */
+  --color-accent-hover: #1d4ed8; /* tailwind: blue-700 */
 
-  --color-warning: #d97706;
-  --color-danger: #dc2626;
-  --color-info: #2563eb;
+  /* Status Colors from UI KPIs */
+  --color-success: #059669; /* tailwind: emerald-600 */
+  --color-warning: #d97706; /* tailwind: amber-600 */
+  --color-danger: #e11d48; /* tailwind: rose-600 */
+  --color-info: #4f46e5; /* tailwind: indigo-600 */
 
   /* Fonts */
-  --font-display: 'Syne', sans-serif;
-  --font-mono: 'IBM Plex Mono', monospace;
-  --font-body: 'DM Sans', sans-serif;
+  --font-sans: 'Inter', sans-serif;
 }
 
 /* Dark mode overrides — activated by .dark on <html> */
 .dark {
-  --color-bg: #0a0c0f;
-  --color-surface: #111418;
-  --color-surface-raised: #161b22;
-  --color-border: #1e2530;
-  --color-border-subtle: #151a22;
+  --color-bg: #020617; /* tailwind: slate-950 */
+  --color-surface: #0f172a; /* tailwind: slate-900 */
+  --color-surface-raised: #1e293b; /* tailwind: slate-800 */
+  --color-border: #334155; /* tailwind: slate-700 */
+  --color-border-subtle: #1e293b; /* tailwind: slate-800 */
 
-  --color-text-primary: #e8edf2;
-  --color-text-secondary: #6b7a8d;
-  --color-text-muted: #3d4a5c;
+  --color-text-primary: #f8fafc; /* tailwind: slate-50 */
+  --color-text-secondary: #94a3b8; /* tailwind: slate-400 */
+  --color-text-muted: #64748b; /* tailwind: slate-500 */
 
-  --color-accent: #00c896;
-  --color-accent-dim: rgba(0, 200, 150, 0.08);
-  --color-accent-hover: #00e5ac;
+  --color-accent: #3b82f6; /* tailwind: blue-500 */
+  --color-accent-dim: rgba(59, 130, 246, 0.15); /* blue-500 at 15% opacity */
+  --color-accent-hover: #60a5fa; /* tailwind: blue-400 */
 
-  --color-warning: #f59e0b;
-  --color-danger: #ef4444;
-  --color-info: #3b82f6;
+  --color-success: #10b981; /* tailwind: emerald-500 */
+  --color-warning: #f59e0b; /* tailwind: amber-500 */
+  --color-danger: #f43f5e; /* tailwind: rose-500 */
+  --color-info: #6366f1; /* tailwind: indigo-500 */
 }
 
+/* --- Base Styling & Global Elements --- */
+
 html {
-  /* background-color: theme(colors.bg); */
+  background-color: theme(colors.bg);
   color: theme(colors.text-primary);
-  font-family: theme(fontFamily.body);
+  font-family: theme(fontFamily.sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 ::selection {
   background: theme(colors.accent);
-  color: theme(colors.bg);
+  color: theme(colors.surface);
 }
 
+/* Custom Scrollbar */
 ::-webkit-scrollbar {
-  width: 4px;
+  width: 6px;
 }
+
 ::-webkit-scrollbar-track {
-  background: theme(colors.bg);
+  background: transparent;
 }
+
 ::-webkit-scrollbar-thumb {
   background: theme(colors.border);
-  border-radius: 2px;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: theme(colors.text-muted);
+}
+
+/* Glass Header Adapts to Dark Mode */
+.glass-header {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(226, 232, 240, 0.8); /* slate-200 */
+}
+
+.dark .glass-header {
+  background: rgba(15, 23, 42, 0.75); /* slate-900 */
+  border-bottom: 1px solid rgba(51, 65, 85, 0.8); /* slate-700 */
+}
+
+/* Motion and Chart utilities */
+.motion-card {
+  transition: box-shadow 0.3s ease;
+}
+.chart-bar {
+  transform-origin: bottom;
 }
 
 @keyframes shimmer {
