@@ -10,10 +10,10 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" className="dark">
       <body
         style={{ colorScheme: 'dark' }}
-        className={`${fontSyne.variable} ${fontIbmPlexMono.variable} ${fontDmSans.variable} antialiased dark`}
+        className={`${fontSyne.variable} ${fontIbmPlexMono.variable} ${fontDmSans.variable} antialiased`}
       >
         {children}
       </body>

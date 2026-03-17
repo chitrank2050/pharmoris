@@ -1,10 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap');
+
 @import 'tailwindcss';
 
 @theme {
+  /* Light mode — default */
+  --color-bg: #f4f6f8;
+  --color-surface: #ffffff;
+  --color-surface-raised: #f0f2f5;
+  --color-border: #dde2ea;
+  --color-border-subtle: #eaecf0;
+
+  --color-text-primary: #0d1117;
+  --color-text-secondary: #4a5568;
+  --color-text-muted: #9aa3b0;
+
+  --color-accent: #00a87a;
+  --color-accent-dim: rgba(0, 168, 122, 0.08);
+  --color-accent-hover: #00c896;
+
+  --color-warning: #d97706;
+  --color-danger: #dc2626;
+  --color-info: #2563eb;
+
+  /* Fonts */
   --font-display: 'Syne', sans-serif;
   --font-mono: 'IBM Plex Mono', monospace;
   --font-body: 'DM Sans', sans-serif;
+}
 
+/* Dark mode overrides — activated by .dark on <html> */
+.dark {
   --color-bg: #0a0c0f;
   --color-surface: #111418;
   --color-surface-raised: #161b22;
@@ -16,7 +41,7 @@
   --color-text-muted: #3d4a5c;
 
   --color-accent: #00c896;
-  --color-accent-dim: #00c89615;
+  --color-accent-dim: rgba(0, 200, 150, 0.08);
   --color-accent-hover: #00e5ac;
 
   --color-warning: #f59e0b;
@@ -25,27 +50,31 @@
 }
 
 html {
-  background-color: var(--color-bg);
-  color: var(--color-text-primary);
-  font-family: var(--font-body);
+  background-color: theme(colors.bg);
+  color: theme(colors.text-primary);
+  font-family: theme(fontFamily.body);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 ::selection {
-  background: var(--color-accent);
-  color: var(--color-bg);
+  background: theme(colors.accent);
+  color: theme(colors.bg);
 }
 
 ::-webkit-scrollbar {
   width: 4px;
 }
-
 ::-webkit-scrollbar-track {
-  background: var(--color-bg);
+  background: theme(colors.bg);
+}
+::-webkit-scrollbar-thumb {
+  background: theme(colors.border);
+  border-radius: 2px;
 }
 
-::-webkit-scrollbar-thumb {
-  background: var(--color-border);
-  border-radius: 2px;
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
+  }
 }
