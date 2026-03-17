@@ -21,7 +21,8 @@
     "init": "./scripts/install.sh",
     "nuke": "./scripts/obliviate.sh",
     "clean-setup": "pnpm run nuke && pnpm run init",
-    "clean-build": "pnpm run nuke && pnpm run init && ./scripts/build.sh"
+    "clean-build": "pnpm run nuke && pnpm run init && ./scripts/build.sh",
+    "prepare": "husky"
   },
   "dependencies": {
     "framer-motion": "^12.37.0",
@@ -39,7 +40,19 @@
     "babel-plugin-react-compiler": "1.0.0",
     "eslint": "^9",
     "eslint-config-next": "16.1.7",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.4.0",
+    "prettier": "^3.8.1",
     "tailwindcss": "^4",
     "typescript": "^5"
+  },
+  "lint-staged": {
+    "**/*.{ts,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "**/*.{json,md,css}": [
+      "prettier --write"
+    ]
   }
 }
