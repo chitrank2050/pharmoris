@@ -10,7 +10,8 @@ export default function GridContent() {
     <motion.div
       variants={staggerContainerVariants}
       initial="hidden"
-      animate="visible"
+      whileInView="visible"
+      viewport={{ once: true }}
       className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
     >
       {KPI_DATA.map((card) => (
