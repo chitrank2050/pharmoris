@@ -30,7 +30,7 @@ export default function ChartSkeleton() {
 
         {/* Chart body — 240px tall matches ResponsiveContainer height */}
         <div className="px-2 py-4">
-          <div className="relative h-[240px] w-full overflow-hidden">
+          <div className="relative h-[300px] w-full overflow-hidden">
             {/* Y axis placeholder */}
             <div className="absolute inset-y-0 left-0 flex w-[52px] flex-col justify-between py-2">
               {Array.from({ length: 5 }).map((_, i) => (

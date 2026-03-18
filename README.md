@@ -1,37 +1,68 @@
-# PHARMORIS
+# Pharmoris Dashboard
 
-> Pharmaceutical intelligence dashboard built for NEUVIOR's frontend engineer assessment.
+> A high-performance, real-time pharmaceutical intelligence dashboard built for monitoring medicine supply, cost analytics, and regional trends.
 
-## Stack
+![Pharmoris Dashboard Preview](https://pharmoris-seven.vercel.app/)
 
-- Next.js 15 (App Router)
-- TypeScript
-- Tailwind CSS
-- Framer Motion
-- Recharts
-- Lucide React
-- pnpm
+## 🚀 Tech Stack
 
-## Getting Started
+- **Framework**: Next.js 15 (App Router)
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS 4.0
+- **Animations**: Framer Motion
+- **Visualization**: Recharts
+- **Icons**: Lucide React
+- **Package Manager**: pnpm
 
-```bash
-pnpm install
-pnpm dev
-```
+## 🛠️ Engineering Decisions
 
-Open [http://localhost:3000](http://localhost:3000)
+### 1. Feature-First Architecture
 
-## Structure
+The project follows a "Feature-First" directory structure (located in `src/features`). Each major domain (Cost Analytics, KPI Metrics, Supply Table, Trends) contains its own components, logic, and types. This ensures high cohesion and low coupling as the application scales.
 
-```
-app/          # App router pages and layouts
-components/   # Reusable UI components
-data/         # Mock data and type definitions
-lib/          # Utilities and helpers
-```
+### 2. Local-First Strategy
 
-## Notes
+To ensure a zero-latency user experience during the assessment, all data is handled via a "Local-First" approach using imported mock data from `src/data`. This eliminates the need for a backend while demonstrating how the UI handles complex data structures.
 
-- Mock data only — no backend required
-- Deployed on Vercel
-- AI assistance disclosed: Antigravity (Tab completion)
+### 3. Motion & Micro-interactions
+
+Standard transition patterns were abstracted into `src/lib/animations.ts`. This ensures consistent entry animations (fade-ups, staggers) and hover states across the entire dashboard, providing a premium "app-like" feel.
+
+### 4. Hybrid Layout System
+
+The dashboard uses a combination of CSS Grid for macro-layouts (the main dashboard grid) and Flexbox for micro-layouts (card headers, navigation). This provides maximum flexibility for responsive adjustments.
+
+## ⚖️ Technical Trade-offs
+
+- **Client-Side Processing**: Data filtering and sorting for the Supply Table happen entirely on the client. While this provides instantaneous feedback for the current data size (~100 items), a production environment with thousands of records would require shifting this to server-side paginated queries.
+- **Fixed-Height Sections**: The Cost Savings Chart and Insights panels use explicit vertical constraints to maintain a balanced "dashboard look". On extremely small vertical viewports, these might require scrollable containers.
+- **Dark Mode Only**: The current design is optimized for a premium dark-mode experience. A light mode implementation was deferred to prioritize refined dark-theme tokens and accessibility.
+
+## 🤖 AI Disclosure
+
+Antigravity assisted with:
+
+- Initial project scaffolding.
+- Refining accessibility (A11y) labels.
+- Code quality audit at the end of project.
+
+Used **Google's Stitch** for design library guidance.
+
+## 📥 Getting Started
+
+1. **Install dependencies**:
+   ```bash
+   pnpm install
+   ```
+2. **Run dev server**:
+   ```bash
+   pnpm dev
+   ```
+3. **Build for production**:
+   ```bash
+   pnpm build
+   ```
+
+---
+
+Developed by [Chitrank Agnihotri](https://www.chitrankagnihotri.com) as part of a Frontend Engineering Assessment.

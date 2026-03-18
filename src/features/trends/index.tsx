@@ -29,34 +29,39 @@ const INSIGHTS = [
 
 export default function RecentTrends() {
   return (
-    <motion.div
-      variants={fadeUpVariants}
-      initial="hidden"
-      animate="visible"
-      className="bg-surface p-8 rounded-2xl border border-line shadow-sm h-full"
-    >
-      <h3 className="text-lg font-bold text-primary mb-8">Recent Insights</h3>
-      <div className="space-y-8">
-        {INSIGHTS.map((item) => (
-          <div key={item.id} className="flex gap-4 group cursor-pointer">
-            <div
-              className={`mt-1 w-2.5 h-2.5 rounded-full ${item.color} shrink-0 group-hover:scale-125 transition-transform`}
-            ></div>
-            <div>
-              <p className="text-sm font-semibold text-primary leading-tight group-hover:text-accent transition-colors">
-                {item.title}
-              </p>
-              <p className="text-xs text-muted mt-1.5 leading-relaxed">{item.description}</p>
-              <span className="text-[10px] text-muted mt-2 block font-bold uppercase tracking-wider italic">
-                {item.time}
-              </span>
+    <section aria-label="Recent insights and alerts" className="h-full">
+      <motion.div
+        variants={fadeUpVariants}
+        initial="hidden"
+        animate="visible"
+        className="bg-surface p-8 rounded-2xl border border-line shadow-sm h-full"
+      >
+        <h3 className="text-lg font-bold text-primary mb-8">Recent Insights</h3>
+        <div className="space-y-8">
+          {INSIGHTS.map((item) => (
+            <div key={item.id} className="flex gap-4 group cursor-pointer">
+              <div
+                className={`mt-1 w-2.5 h-2.5 rounded-full ${item.color} shrink-0 group-hover:scale-125 transition-transform`}
+              ></div>
+              <div>
+                <p className="text-sm font-semibold text-primary leading-tight group-hover:text-accent transition-colors">
+                  {item.title}
+                </p>
+                <p className="text-xs text-muted mt-1.5 leading-relaxed">{item.description}</p>
+                <span className="text-[10px] text-muted mt-2 block font-bold uppercase tracking-wider italic">
+                  {item.time}
+                </span>
+              </div>
             </div>
-          </div>
-        ))}
-      </div>
-      <button className="w-full mt-10 py-3 text-xs font-bold uppercase tracking-widest text-secondary bg-surface-raised rounded-xl hover:bg-page hover:text-primary transition-all active:scale-95 border border-line">
-        View All Reports
-      </button>
-    </motion.div>
+          ))}
+        </div>
+        <button
+          aria-label="View all insight reports"
+          className="w-full mt-10 py-3 text-xs font-bold uppercase tracking-widest text-secondary bg-surface-raised rounded-xl hover:bg-page hover:text-primary transition-all active:scale-95 border border-line"
+        >
+          View All Reports
+        </button>
+      </motion.div>
+    </section>
   )
 }

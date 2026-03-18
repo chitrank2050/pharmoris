@@ -140,6 +140,7 @@ export default function TableContent() {
               setPage(0)
             }}
             placeholder="Search drug name..."
+            aria-label="Search drug name"
             className="pl-11 pr-5 py-2.5 text-sm border border-line rounded-xl w-full sm:w-72 focus:border-accent transition-all outline-none bg-page/50 focus:bg-surface shadow-sm focus:shadow-md"
           />
         </div>
@@ -178,9 +179,26 @@ export default function TableContent() {
             animate="visible"
             className="divide-y divide-line-dim"
           >
-            {paginated.map((row, index) => (
-              <TableRow key={row.id} row={row} index={index} />
-            ))}
+            {paginated.length > 0 ? (
+              paginated.map((row, index) => <TableRow key={row.id} row={row} index={index} />)
+            ) : (
+              <tr>
+                <td colSpan={columns.length} className="px-8 py-20 text-center">
+                  <div className="flex flex-col items-center justify-center space-y-3">
+                    <Search className="h-8 w-8 text-muted opacity-20" />
+                    <p className="text-sm font-medium text-muted">
+                      No matching medicines found for &quot;{search}&quot;
+                    </p>
+                    <button
+                      onClick={() => setSearch('')}
+                      className="text-xs font-bold text-accent uppercase tracking-widest hover:underline"
+                    >
+                      Clear Search
+                    </button>
+                  </div>
+                </td>
+              </tr>
+            )}
           </motion.tbody>
         </table>
       </div>
@@ -194,6 +212,7 @@ export default function TableContent() {
           <button
             onClick={() => setPage((p) => Math.max(0, p - 1))}
             disabled={page === 0}
+            aria-label="Previous page"
             className="px-4 py-1.5 text-xs font-bold uppercase tracking-wider border border-line rounded-lg hover:bg-surface text-secondary disabled:opacity-30 disabled:cursor-not-allowed transition-all shadow-sm"
           >
             Previous
@@ -201,6 +220,7 @@ export default function TableContent() {
           <button
             onClick={() => setPage((p) => Math.min(totalPages - 1, p + 1))}
             disabled={page === totalPages - 1}
+            aria-label="Next page"
             className="px-4 py-1.5 text-xs font-bold uppercase tracking-wider border border-line rounded-lg hover:bg-surface text-secondary hover:border-accent/50 disabled:opacity-30 disabled:cursor-not-allowed transition-all shadow-sm"
           >
             Next
