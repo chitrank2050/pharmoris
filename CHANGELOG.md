@@ -2,6 +2,24 @@
 
 All notable changes to PHARMORIS.
 
+## [0.4.0] - 2026-03-18
+
+### Documentation
+
+- Update README with pnpm usage, new commands, and remove dashboard preview image.
+
+### Features
+
+- Add Dependabot configuration to automate monthly updates for npm and GitHub Actions dependencies.
+- Implement empty state for supply table, enhance accessibility, adjust layout, and update README documentation.
+- Update Next.js config to enable strict mode, compression, package import optimization, and AVIF/WebP image formats.
+- Implement 'animate while in view' animations for the KPI grid and Hero sections, along with minor styling adjustments to Hero buttons.
+- Introduce a new shared UI component library including Button, Input, SearchInput, and Card, and migrate existing components to utilize them.
+
+### Maintenance
+
+- Bump package version to 0.4.0.
+
 ## [0.3.0] - 2026-03-18
 
 ### Features
