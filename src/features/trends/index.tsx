@@ -2,6 +2,9 @@
 
 import { motion } from 'framer-motion'
 import { fadeUpVariants } from '@/lib/animations'
+import { Button, Card } from '@/ui'
+
+const MotionCard = motion(Card)
 
 const INSIGHTS = [
   {
@@ -30,14 +33,15 @@ const INSIGHTS = [
 export default function RecentTrends() {
   return (
     <section aria-label="Recent insights and alerts" className="h-full">
-      <motion.div
+      <MotionCard
         variants={fadeUpVariants}
         initial="hidden"
-        animate="visible"
-        className="bg-surface p-8 rounded-2xl border border-line shadow-sm h-full"
+        whileInView="visible"
+        viewport={{ once: true }}
+        className="h-full flex flex-col"
       >
         <h3 className="text-lg font-bold text-primary mb-8">Recent Insights</h3>
-        <div className="space-y-8">
+        <div className="space-y-8 flex-1">
           {INSIGHTS.map((item) => (
             <div key={item.id} className="flex gap-4 group cursor-pointer">
               <div
@@ -55,13 +59,14 @@ export default function RecentTrends() {
             </div>
           ))}
         </div>
-        <button
+        <Button
+          variant="tertiary"
+          className="w-full mt-10 py-3 text-xs font-bold uppercase tracking-widest"
           aria-label="View all insight reports"
-          className="w-full mt-10 py-3 text-xs font-bold uppercase tracking-widest text-secondary bg-surface-raised rounded-xl hover:bg-page hover:text-primary transition-all active:scale-95 border border-line"
         >
           View All Reports
-        </button>
-      </motion.div>
+        </Button>
+      </MotionCard>
     </section>
   )
 }

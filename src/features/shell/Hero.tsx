@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion'
 import { Download, PlusCircle } from 'lucide-react'
 import { fadeUpVariants } from '@/lib/animations'
+import { Button } from '@/ui'
 
 export default function Hero() {
   return (
@@ -30,20 +31,22 @@ export default function Hero() {
         whileInView="visible"
         viewport={{ once: true }}
       >
-        <button
+        <Button
+          variant="secondary"
+          className="sm:min-w-[145px]"
           aria-label="Export analytics report as PDF"
-          className="flex items-center justify-center gap-2 px-4 py-2 bg-surface border border-line rounded-lg text-sm font-medium hover:bg-surface-raised hover:border-line transition-all shadow-sm active:scale-95 text-secondary whitespace-nowrap sm:min-w-[145px]"
         >
           <Download className="w-4 h-4 text-muted" />
           Export PDF
-        </button>
-        <button
+        </Button>
+        <Button
+          variant="primary"
+          className="sm:min-w-[145px]"
           aria-label="Start a new pharmaceutical analysis"
-          className="flex items-center justify-center gap-2 px-4 py-2 bg-accent text-white rounded-lg text-sm font-medium hover:bg-accent-hover transition-all shadow-md active:scale-95 whitespace-nowrap sm:min-w-[145px]"
         >
           <PlusCircle className="w-4 h-4" />
           New Analysis
-        </button>
+        </Button>
       </motion.div>
     </section>
   )

@@ -2,11 +2,12 @@
 
 import { useState, useMemo, useCallback, memo } from 'react'
 import { motion } from 'framer-motion'
-import { ArrowUpDown, ArrowUp, ArrowDown, Search } from 'lucide-react'
+import { ArrowUpDown, ArrowUp, ArrowDown } from 'lucide-react'
 import { DRUG_SUPPLY_DATA } from '@/data/supply'
 import type { DrugSupply } from '@/types'
 import { staggerContainerVariants, slideInLeftVariants } from '@/lib/animations'
 import { cn } from '@/lib/utils'
+import { Button, SearchInput } from '@/ui'
 
 type SortKey = keyof Pick<
   DrugSupply,
@@ -130,20 +131,15 @@ export default function TableContent() {
             Live inventory tracking across primary regional distribution hubs.
           </p>
         </div>
-        <div className="relative group">
-          <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-muted transition-colors group-focus-within:text-accent" />
-          <input
-            type="text"
-            value={search}
-            onChange={(e) => {
-              setSearch(e.target.value)
-              setPage(0)
-            }}
-            placeholder="Search drug name..."
-            aria-label="Search drug name"
-            className="pl-11 pr-5 py-2.5 text-sm border border-line rounded-xl w-full sm:w-72 focus:border-accent transition-all outline-none bg-page/50 focus:bg-surface shadow-sm focus:shadow-md"
-          />
-        </div>
+        <SearchInput
+          value={search}
+          onChange={(e) => {
+            setSearch(e.target.value)
+            setPage(0)
+          }}
+          placeholder="Search drug name..."
+          aria-label="Search drug name"
+        />
       </div>
 
       <div className="overflow-x-auto min-h-[445px]">
@@ -185,16 +181,22 @@ export default function TableContent() {
               <tr>
                 <td colSpan={columns.length} className="px-8 text-center">
                   <div className="flex flex-col items-center justify-center space-y-3 min-h-[300px]">
-                    <Search className="h-8 w-8 text-muted opacity-20" />
+                    <div className="text-muted opacity-20">
+                      <SearchInput className="hidden" />{' '}
+                      {/* Non-visible component just to match style if needed? no, use Search icon */}
+                      <SearchInput
+                        icon={null}
+                        readOnly
+                        value=""
+                        className="p-0 border-none bg-transparent shadow-none w-auto"
+                      />
+                    </div>
                     <p className="text-sm font-medium text-muted">
                       No matching medicines found for &quot;{search}&quot;
                     </p>
-                    <button
-                      onClick={() => setSearch('')}
-                      className="text-xs font-bold text-accent uppercase tracking-widest hover:underline"
-                    >
+                    <Button variant="ghost" size="xs" onClick={() => setSearch('')}>
                       Clear Search
-                    </button>
+                    </Button>
                   </div>
                 </td>
               </tr>
@@ -209,22 +211,24 @@ export default function TableContent() {
           <span className="font-bold text-primary">{sorted.length.toLocaleString()}</span> medicines
         </p>
         <div className="flex gap-2">
-          <button
+          <Button
+            variant="secondary"
+            size="xs"
             onClick={() => setPage((p) => Math.max(0, p - 1))}
             disabled={page === 0}
             aria-label="Previous page"
-            className="px-4 py-1.5 text-xs font-bold uppercase tracking-wider border border-line rounded-lg hover:bg-surface text-secondary disabled:opacity-30 disabled:cursor-not-allowed transition-all shadow-sm"
           >
             Previous
-          </button>
-          <button
+          </Button>
+          <Button
+            variant="secondary"
+            size="xs"
             onClick={() => setPage((p) => Math.min(totalPages - 1, p + 1))}
             disabled={page === totalPages - 1}
             aria-label="Next page"
-            className="px-4 py-1.5 text-xs font-bold uppercase tracking-wider border border-line rounded-lg hover:bg-surface text-secondary hover:border-accent/50 disabled:opacity-30 disabled:cursor-not-allowed transition-all shadow-sm"
           >
             Next
-          </button>
+          </Button>
         </div>
       </div>
     </>

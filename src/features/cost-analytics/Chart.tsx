@@ -14,6 +14,9 @@ import {
 import { COST_SAVINGS_DATA } from '@/data/chart'
 import { fadeUpVariants } from '@/lib/animations'
 import { tokens } from '@/lib/tokens'
+import { Card } from '@/ui'
+
+const MotionCard = motion(Card)
 
 function formatSavings(value: number) {
   if (value >= 1_000_000) return `£${(value / 1_000_000).toFixed(1)}M`
@@ -93,16 +96,15 @@ const ChartBody = memo(function ChartBody() {
 
 export default function CostSavingsChart() {
   const ref = useRef<HTMLDivElement>(null)
-  const isInView = useInView(ref, { once: true, margin: '-80px' })
 
   return (
-    <motion.div
+    <MotionCard
       ref={ref}
       variants={fadeUpVariants}
       initial="hidden"
-      animate={isInView ? 'visible' : 'hidden'}
-      style={{ willChange: 'transform, opacity' }}
-      className="overflow-hidden rounded-2xl border border-line bg-surface p-8 shadow-sm h-full flex flex-col"
+      whileInView="visible"
+      viewport={{ once: true }}
+      className="h-full flex flex-col"
     >
       {/* Header */}
       <div className="flex items-center justify-between mb-10">
@@ -116,6 +118,6 @@ export default function CostSavingsChart() {
       <div className="flex-1 w-full flex items-center">
         <ChartBody />
       </div>
-    </motion.div>
+    </MotionCard>
   )
 }

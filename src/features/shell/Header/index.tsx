@@ -2,7 +2,7 @@
 
 import { Suspense } from 'react'
 import { Activity } from 'lucide-react'
-import ThemeToggle from '@/components/ui/ThemeToggle'
+import ThemeToggle from '@/ui/ThemeToggle'
 import Navbar from './Navbar'
 import Profile from './Profile'
 import Notifications from './Notifications'
