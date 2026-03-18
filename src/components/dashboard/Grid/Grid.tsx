@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import Card from '@/app/_components/Card/Card'
+import Card from '@/components/dashboard/Card/Card'
 import { KPI_DATA } from '@/data/kpi'
 import { staggerContainerVariants } from '@/lib/animations'
 

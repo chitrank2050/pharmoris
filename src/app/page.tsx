@@ -1,9 +1,8 @@
-import PageShell from '@/layout/PageShell'
-
-import Grid from './_components/Grid'
-import Chart from './_components/Chart'
-import Table from './_components/Table'
-import Header from '@/components/Header'
+import PageShell from '@/components/layout/PageShell'
+import Header from '@/components/layout/Header'
+import Grid from '@/components/dashboard/Grid'
+import Chart from '@/components/dashboard/Chart'
+import Table from '@/components/dashboard/Table'
 
 export default function DashboardPage() {
   return (

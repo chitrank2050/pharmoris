@@ -1,4 +1,4 @@
-import Skeleton from '@/ui/Skeleton'
+import Skeleton from '@/components/ui/Skeleton'
 
 export default function TableSkeleton() {
   return (
@@ -15,7 +15,7 @@ export default function TableSkeleton() {
       <div className="overflow-x-auto">
         <table className="w-full text-left border-collapse">
           <thead>
-            <tr className="bg-page/30">
+            <tr className="bg-page">
               {['w-32', 'w-48', 'w-24', 'w-24', 'w-32'].map((w, i) => (
                 <th key={i} className="px-8 py-4">
                   <Skeleton className={`h-3 ${w}`} />
@@ -48,7 +48,7 @@ export default function TableSkeleton() {
         </table>
       </div>
 
-      <div className="px-8 py-5 border-t border-line-dim flex items-center justify-between bg-page/10">
+      <div className="px-8 py-5 border-t border-line-dim flex items-center justify-between bg-surface-raised/50">
         <Skeleton className="h-4 w-48" />
         <div className="flex gap-2">
           <Skeleton className="h-8 w-24 rounded-lg" />
