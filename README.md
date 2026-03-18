@@ -2,8 +2,6 @@
 
 > A high-performance, real-time pharmaceutical intelligence dashboard built for monitoring medicine supply, cost analytics, and regional trends.
 
-![Pharmoris Dashboard Preview](https://pharmoris-seven.vercel.app/)
-
 ## 🚀 Tech Stack
 
 - **Framework**: Next.js 15 (App Router)
@@ -50,9 +48,11 @@ Used **Google's Stitch** for design library guidance.
 
 ## 📥 Getting Started
 
+> This project uses pnpm as the package manager. Please use pnpm to install dependencies.
+
 1. **Install dependencies**:
    ```bash
-   pnpm install
+   pnpm run init
    ```
 2. **Run dev server**:
    ```bash
@@ -62,6 +62,25 @@ Used **Google's Stitch** for design library guidance.
    ```bash
    pnpm build
    ```
+
+## 📥 Other Commands
+
+```bash
+# Nuke or obliviate the project
+pnpm run nuke
+
+# Run clean setup (Nuke + Install)
+pnpm run clean-setup
+
+# Run clean build (Nuke + Build)
+pnpm run clean-build
+
+# Run lint
+pnpm run lint
+
+# Run format
+pnpm run format:check
+```
 
 ---
 
