@@ -95,52 +95,52 @@ export default function CostSavingsChart() {
   const ref = useRef<HTMLDivElement>(null)
   const isInView = useInView(ref, { once: true, margin: '-80px' })
 
-  const peak = Math.max(...COST_SAVINGS_DATA.map((d) => d.savings))
-  const latest = COST_SAVINGS_DATA[COST_SAVINGS_DATA.length - 1].savings
-  const growth = (
-    ((latest - COST_SAVINGS_DATA[0].savings) / COST_SAVINGS_DATA[0].savings) *
-    100
-  ).toFixed(0)
-
   return (
-    <section aria-label="Cost savings over time chart" className="mb-8">
-      <p className="mb-4 text-xs tracking-widest text-muted" aria-hidden="true">
-        COST SAVINGS OVER TIME
-      </p>
-
-      <motion.div
-        ref={ref}
-        variants={fadeUpVariants}
-        initial="hidden"
-        animate={isInView ? 'visible' : 'hidden'}
-        style={{ willChange: 'transform, opacity' }}
-        className="overflow-hidden rounded-sm border border-line bg-surface"
-      >
-        {/* Header */}
-        <div className="flex flex-wrap items-start justify-between gap-4 border-b border-line px-6 py-4">
-          <div>
-            <p className="font-display text-2xl font-700 text-primary">{formatSavings(latest)}</p>
-            <p className="mt-0.5 text-xs text-secondary">Latest recorded savings</p>
+    <motion.div
+      ref={ref}
+      variants={fadeUpVariants}
+      initial="hidden"
+      animate={isInView ? 'visible' : 'hidden'}
+      style={{ willChange: 'transform, opacity' }}
+      className="overflow-hidden rounded-2xl border border-line bg-surface p-8 shadow-sm h-full"
+    >
+      {/* Header */}
+      <div className="flex items-center justify-between mb-10">
+        <div>
+          <h3 className="text-lg font-bold text-primary">Cost Savings Over Time</h3>
+          <p className="text-sm text-muted">Projected efficiency vs. actual savings.</p>
+        </div>
+        <div className="hidden sm:flex items-center gap-4">
+          <div className="flex items-center gap-2">
+            <span className="w-2.5 h-2.5 rounded-full bg-accent"></span>
+            <span className="text-[11px] font-bold text-muted uppercase tracking-wider">
+              Actual
+            </span>
           </div>
-          <div className="flex gap-6">
-            <div className="text-right">
-              <p className="text-xs text-muted">PEAK</p>
-              <p className="mt-0.5 font-display text-sm font-600 text-primary">
-                {formatSavings(peak)}
-              </p>
-            </div>
-            <div className="text-right">
-              <p className="text-xs text-muted">GROWTH</p>
-              <p className="mt-0.5 font-display text-sm font-600 text-accent">+{growth}%</p>
-            </div>
+          <div className="flex items-center gap-2">
+            <span className="w-2.5 h-2.5 rounded-full bg-line"></span>
+            <span className="text-[11px] font-bold text-muted uppercase tracking-wider">
+              Target
+            </span>
           </div>
         </div>
+      </div>
 
-        {/* Chart */}
-        <div className="px-2 py-4">
-          <ChartBody />
-        </div>
-      </motion.div>
-    </section>
+      {/* Chart Content */}
+      <div className="grow min-h-[300px]">
+        <ChartBody />
+      </div>
+
+      {/* Footer Stats */}
+      <div className="flex justify-between mt-6 px-1 text-[11px] font-bold text-muted tracking-widest uppercase">
+        <span>Jan</span>
+        <span>Feb</span>
+        <span>Mar</span>
+        <span>Apr</span>
+        <span>May</span>
+        <span>Jun</span>
+        <span>Jul</span>
+      </div>
+    </motion.div>
   )
 }

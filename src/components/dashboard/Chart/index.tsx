@@ -1,9 +1,11 @@
-'use client'
-
-import dynamic from 'next/dynamic'
-
+import { Suspense } from 'react'
+import CostSavingsChart from './Chart'
 import ChartSkeleton from './Skeleton'
 
-const Chart = dynamic(() => import('./Chart'), { ssr: false, loading: () => <ChartSkeleton /> })
-
-export default Chart
+export default function ChartSection() {
+  return (
+    <Suspense fallback={<ChartSkeleton />}>
+      <CostSavingsChart />
+    </Suspense>
+  )
+}

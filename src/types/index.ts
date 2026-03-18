@@ -1,6 +1,6 @@
 export type StockStatus = 'In Stock' | 'Low Stock' | 'Out of Stock'
 
-export type PriceDirection = 'up' | 'down' | 'stable'
+export type PriceDirection = 'up' | 'down' | 'stable' | 'info'
 
 export interface KPICard {
   id: string
@@ -8,6 +8,8 @@ export interface KPICard {
   value: string
   change: string
   direction: PriceDirection
+  icon: string
+  description: string
 }
 
 export interface DrugSupply {

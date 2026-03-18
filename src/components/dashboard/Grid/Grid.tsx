@@ -1,26 +1,13 @@
-'use client'
-
-import { motion } from 'framer-motion'
-import Card from '@/components/dashboard/Card/Card'
-import { KPI_DATA } from '@/data/kpi'
-import { staggerContainerVariants } from '@/lib/animations'
+import { Suspense } from 'react'
+import GridContent from './GridContent'
+import GridSkeleton from './Skeleton'
 
 export default function KPIGrid() {
   return (
-    <section aria-label="Key performance indicators" className="mb-8">
-      <p className="mb-4 text-xs tracking-widest text-muted" aria-hidden="true">
-        OVERVIEW
-      </p>
-      <motion.div
-        variants={staggerContainerVariants}
-        initial="hidden"
-        animate="visible"
-        className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4"
-      >
-        {KPI_DATA.map((card) => (
-          <Card key={card.id} card={card} />
-        ))}
-      </motion.div>
+    <section aria-label="Key performance indicators" className="mb-10">
+      <Suspense fallback={<GridSkeleton />}>
+        <GridContent />
+      </Suspense>
     </section>
   )
 }
