@@ -146,7 +146,7 @@ export default function TableContent() {
         </div>
       </div>
 
-      <div className="overflow-x-auto">
+      <div className="overflow-x-auto min-h-[445px]">
         <table className="w-full text-left border-collapse">
           <thead>
             <tr className="bg-page/30">
@@ -183,8 +183,8 @@ export default function TableContent() {
               paginated.map((row, index) => <TableRow key={row.id} row={row} index={index} />)
             ) : (
               <tr>
-                <td colSpan={columns.length} className="px-8 py-20 text-center">
-                  <div className="flex flex-col items-center justify-center space-y-3">
+                <td colSpan={columns.length} className="px-8 text-center">
+                  <div className="flex flex-col items-center justify-center space-y-3 min-h-[300px]">
                     <Search className="h-8 w-8 text-muted opacity-20" />
                     <p className="text-sm font-medium text-muted">
                       No matching medicines found for &quot;{search}&quot;
