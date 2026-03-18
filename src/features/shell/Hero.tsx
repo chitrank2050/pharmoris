@@ -17,7 +17,7 @@ export default function Hero() {
           <Download className="w-4 h-4 text-muted" />
           Export PDF
         </button>
-        <button className="flex items-center gap-2 px-4 py-2 bg-accent text-white rounded-lg text-sm font-medium hover:bg-accent-hover transition-all shadow-md shadow-accent/10 active:scale-95">
+        <button className="flex items-center gap-2 px-4 py-2 bg-accent text-white rounded-lg text-sm font-medium hover:bg-accent-hover transition-all shadow-md active:scale-95">
           <PlusCircle className="w-4 h-4" />
           New Analysis
         </button>

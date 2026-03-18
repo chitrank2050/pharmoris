@@ -1,19 +1,20 @@
+'use client'
+
 import { Suspense } from 'react'
 import { Activity } from 'lucide-react'
 import ThemeToggle from '@/components/ui/ThemeToggle'
-
 import Navbar from './Navbar'
 import Profile from './Profile'
 import Notifications from './Notifications'
 
 export default function Header() {
   return (
-    <header role="banner" className="sticky top-0 z-50 glass-header">
+    <header role="banner" className="sticky top-0 z-50 glass-header border-b border-line shadow-sm">
       <div className="max-w-[1400px] mx-auto px-6 h-16 flex items-center justify-between w-full">
         <div className="flex h-16 items-center justify-between w-full">
           <div className="flex items-center gap-3" aria-label="PHARMORIS home">
             <div
-              className="flex h-8 w-8 items-center justify-center rounded-sm bg-accent shadow-lg"
+              className="flex h-8 w-8 items-center justify-center rounded-sm bg-accent shadow-md"
               aria-hidden="true"
             >
               <Activity className="h-4 w-4 text-page" strokeWidth={2.5} />
@@ -31,7 +32,6 @@ export default function Header() {
             <Notifications />
             <div className="h-6 w-px bg-line mx-2 hidden md:block" />
 
-            {/* Profile (Image and Name) - Wrapped in Suspense per user request */}
             <Suspense fallback={<div className="h-8 w-8 rounded-full bg-surface-raised md:w-32" />}>
               <Profile />
             </Suspense>

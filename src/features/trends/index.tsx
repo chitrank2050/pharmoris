@@ -27,7 +27,7 @@ const INSIGHTS = [
   },
 ]
 
-export default function Insights() {
+export default function RecentTrends() {
   return (
     <motion.div
       variants={fadeUpVariants}
@@ -43,7 +43,9 @@ export default function Insights() {
               className={`mt-1 w-2.5 h-2.5 rounded-full ${item.color} shrink-0 group-hover:scale-125 transition-transform`}
             ></div>
             <div>
-              <p className="text-sm font-semibold text-primary leading-tight">{item.title}</p>
+              <p className="text-sm font-semibold text-primary leading-tight group-hover:text-accent transition-colors">
+                {item.title}
+              </p>
               <p className="text-xs text-muted mt-1.5 leading-relaxed">{item.description}</p>
               <span className="text-[10px] text-muted mt-2 block font-bold uppercase tracking-wider italic">
                 {item.time}
@@ -52,7 +54,7 @@ export default function Insights() {
           </div>
         ))}
       </div>
-      <button className="w-full mt-10 py-3 text-xs font-bold uppercase tracking-widest text-secondary bg-surface-raised rounded-xl hover:bg-page hover:text-primary transition-all active:scale-95">
+      <button className="w-full mt-10 py-3 text-xs font-bold uppercase tracking-widest text-secondary bg-surface-raised rounded-xl hover:bg-page hover:text-primary transition-all active:scale-95 border border-line">
         View All Reports
       </button>
     </motion.div>

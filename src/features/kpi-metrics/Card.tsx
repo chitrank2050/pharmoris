@@ -12,10 +12,10 @@ interface Props {
 }
 
 const trendConfig = {
-  up: 'text-emerald-600 bg-emerald-50 ring-1 ring-emerald-100',
-  down: 'text-rose-600 bg-rose-50 ring-1 ring-rose-100',
-  info: 'text-accent bg-accent-dim ring-1 ring-accent/10',
-  stable: 'text-slate-400 bg-slate-50 ring-1 ring-slate-100',
+  up: 'text-emerald-700 bg-emerald-50 border-emerald-100',
+  down: 'text-rose-700 bg-rose-50 border-rose-100',
+  info: 'text-accent bg-accent-dim border-accent/10',
+  stable: 'text-slate-400 bg-slate-50 border-slate-100',
 }
 
 // Icon base colors from the design
@@ -46,12 +46,12 @@ const Card = memo(function KPICard({ card }: Props) {
       variants={staggerChildVariants}
       whileHover={{ scale: 1.02, y: -4 }}
       whileTap={{ scale: 0.98 }}
-      className="group relative flex flex-col bg-surface p-6 rounded-2xl border border-line shadow-sm hover:shadow-xl hover:shadow-slate-200/50 transition-all duration-300"
+      className="group relative flex flex-col bg-surface p-6 rounded-2xl border border-line shadow-sm hover:shadow-xl transition-all duration-300"
     >
       <div className="flex items-center justify-between mb-5">
         <div
           className={cn(
-            'p-2.5 rounded-xl transition-transform duration-300 group-hover:scale-110',
+            'p-2.5 rounded-xl transition-transform duration-300 group-hover:scale-110 border',
             iconClasses
           )}
         >
@@ -59,7 +59,7 @@ const Card = memo(function KPICard({ card }: Props) {
         </div>
         <span
           className={cn(
-            'text-[11px] font-bold px-2 py-0.5 rounded-full whitespace-nowrap',
+            'text-[11px] font-bold px-2 py-0.5 rounded-full whitespace-nowrap border',
             trendClasses
           )}
         >

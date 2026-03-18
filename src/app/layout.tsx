@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { fontSans } from '@/lib/fonts'
 import AppProvider from '@/providers'
-import Footer from '@/components/layout/Footer'
+import Footer from '@/features/shell/Footer'
 
 import './globals.css'
 

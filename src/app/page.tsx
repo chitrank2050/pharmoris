@@ -1,10 +1,10 @@
-import PageShell from '@/components/layout/PageShell'
-import Header from '@/components/layout/Header'
-import Hero from '@/components/dashboard/Hero'
-import Grid from '@/components/dashboard/Grid'
-import Chart from '@/components/dashboard/Chart'
-import Table from '@/components/dashboard/Table'
-import Insights from '@/components/dashboard/Insights'
+import PageShell from '@/features/shell/PageShell'
+import Header from '@/features/shell/Header'
+import Hero from '@/features/shell/Hero'
+import Grid from '@/features/kpi-metrics'
+import Chart from '@/features/cost-analytics'
+import Table from '@/features/supply-table'
+import Trends from '@/features/trends'
 
 export default function DashboardPage() {
   return (
@@ -19,7 +19,7 @@ export default function DashboardPage() {
             <Chart />
           </div>
           <div className="lg:col-span-1">
-            <Insights />
+            <Trends />
           </div>
         </div>
 

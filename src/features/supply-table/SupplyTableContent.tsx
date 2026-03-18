@@ -17,9 +17,9 @@ type SortDir = 'asc' | 'desc'
 const PAGE_SIZE = 4
 
 const statusConfig: Record<DrugSupply['stockStatus'], string> = {
-  'In Stock': 'text-emerald-600 bg-emerald-50 ring-emerald-100',
-  'Low Stock': 'text-amber-600 bg-amber-50 ring-amber-100',
-  'Out of Stock': 'text-rose-600 bg-rose-50 ring-rose-100',
+  'In Stock': 'text-emerald-700 bg-emerald-50 border-emerald-200',
+  'Low Stock': 'text-amber-700 bg-amber-50 border-amber-200',
+  'Out of Stock': 'text-rose-700 bg-rose-50 border-rose-200',
 }
 
 const columns: { key: SortKey; label: string; align?: 'right' | 'left' }[] = [
@@ -64,7 +64,7 @@ const TableRow = memo(function TableRow({ row, index }: { row: DrugSupply; index
       <td className="px-8 py-5">
         <span
           className={cn(
-            'inline-flex items-center px-3 py-1 rounded-full text-[11px] font-bold ring-1',
+            'inline-flex items-center px-3 py-1 rounded-full text-[11px] font-bold border',
             statusConfig[row.stockStatus]
           )}
         >
@@ -140,7 +140,7 @@ export default function TableContent() {
               setPage(0)
             }}
             placeholder="Search drug name..."
-            className="pl-11 pr-5 py-2.5 text-sm border border-line rounded-xl w-full sm:w-72 focus:ring-4 focus:ring-accent/5 focus:border-accent/50 transition-all outline-none bg-page/50 focus:bg-surface"
+            className="pl-11 pr-5 py-2.5 text-sm border border-line rounded-xl w-full sm:w-72 focus:border-accent transition-all outline-none bg-page/50 focus:bg-surface shadow-sm focus:shadow-md"
           />
         </div>
       </div>
